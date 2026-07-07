@@ -1,0 +1,16 @@
+.TodoCounter {
+    font-size: 24px;
+    text-align: center;
+    margin: 0;
+    padding: 48px 0px 16px;
+    color: #4b006e;
+    font-weight: bold;
+}
+
+.TodoCounter-completed {
+    color: #3ccf91;
+}
+
+.TodoCounter-total {
+    color: #ff005d;
+}

@@ -1,0 +1,27 @@
+.TodoSearch {
+    width: 100%;
+    max-width: 420px;
+    height: 56px;
+    border: 1px solid #3b075f;
+    border-radius: 12px;
+    padding: 0 24px;
+    font-size: 20px;
+    color: #3b075f;
+    background: #ffe7d2;
+    box-shadow: 0 6px 12px rgba(59,7,95, .25);
+    outline: none;
+}
+
+.TodoSearch::placeholder{
+    color: #9b7c8d;
+}
+
+.TodoSearch:focus {
+    box-shadow: 0 6px 12px rgba(59,7,95, .5);
+    outline-color: #3b075f;
+}
+
+.TodoSearch:hover {
+    box-shadow: 0 6px 12px rgba(59,7,95, .5);
+    outline: none;
+}

@@ -1,0 +1,81 @@
+.TodoItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffe7d2;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 6px 12px rgba(59, 7, 95, 0.2);
+}
+
+.TodoItem-text {
+    flex: 1;
+    margin: 0;
+    text-align: left;
+    font-size: 18px;
+    color: #3b075f;
+}
+
+.TodoItem-text--completed {
+    text-decoration: line-through;
+    color: #9b7c8d;
+}
+
+.TodoItem-check,
+.TodoItem-delete {
+    font-weight: bold; 
+    cursor: pointer;
+}
+
+.TodoItem-check {
+    color: #3b075f;
+}
+
+.TodoItem-check--active {
+    color: #3ccf91;
+}
+
+.TodoItem-delete {
+    color: #d90452;
+}
+
+.TodoItem-container-delete:hover {
+    color: #ff005d;
+}
+
+.Icon-container {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Clase 12  */
+.Icon-container-check {
+    
+}
+/* .Icon-container-check--active {
+    color: #4caf50;
+} */
+
+/* .Icon-container-delete{
+    
+} */
+
+.Icon-container-delete:hover {
+    color: red;
+}
+
+/* svg  */
+.Icon-svg {
+    width: 24px;
+    height: 24px;
+
+}
+
