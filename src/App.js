@@ -18,22 +18,40 @@ import './App.css';
 localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
 localStorage.removeItem('TODOS_V1'); */
 
-function App() {
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
+// clase 14
+function useLocalStorage(itemName, initialValue) {
 
-  let parsedTodos;
+  // clase 13
+  const localStorageItem = localStorage.getItem(itemName);
 
-  if(!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedTodos = [];
+  let parsedItem;
+
+  if(!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
   } else {
-    parsedTodos = JSON.parse(localStorageTodos);
+    parsedItem = JSON.parse(localStorageItem);
   }
+
+  const [item, setItem] = React.useState(parsedItem);
+    
+  // clase 13 
+  const saveItem = (newItem) => {
+    const stringifiedTodos = JSON.stringify(newItem);
+    localStorage.setItem(itemName, stringifiedTodos);
+    setItem(newItem);
+  }
+
+  return [item, saveItem]
+}
+
+function App() {
+  
 
   // ESTADOS
 
   // State for: todos
-  const [todos, setTodos] = React.useState(parsedTodos)
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
 
   // State for: search input
   const [searchValue, setSearchValue] = React.useState('');
@@ -55,13 +73,6 @@ function App() {
       return todoText.includes(searchText);
     }
   );
-
-  // clase 13 
-  const saveTodos = (newTodos) => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
-  }
 
   // clase 10 completar todos con eventos 
   const completeTodo = (text) => {
