@@ -20,7 +20,12 @@ function App(){
   // ESTADOS
 
   // State for: todos
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage('TODOS_V1', []);
 
   // State for: search input
   const [searchValue, setSearchValue] = React.useState('');
@@ -34,24 +39,7 @@ function App(){
   // Count: total todos
   const totalTodos = todos.length;
 
-  console.log('Log 1');
-
-  /* React.useEffect(() =>{
-    console.log('L00000og 2');
-  }); */
-
-  /* React.useEffect(() =>{
-    console.log('Looooog 2');
-
-  }, [] ); */
-
-  React.useEffect(() =>{
-    console.log('Looooog 2');
-
-  }, [totalTodos] );
-
-  console.log('Log 3');
-
+  
 
   // clase 9: filter todos
   const searchedTodos = todos.filter(
@@ -84,6 +72,8 @@ function App(){
 
   return (
     <AppUI
+      loading = {loading}
+      error = {error}
       completedTodos = {completedTodos}
       totalTodos = {totalTodos}
       searchValue = {searchValue}
