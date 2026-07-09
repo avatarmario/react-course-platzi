@@ -34,6 +34,25 @@ function App(){
   // Count: total todos
   const totalTodos = todos.length;
 
+  console.log('Log 1');
+
+  /* React.useEffect(() =>{
+    console.log('L00000og 2');
+  }); */
+
+  /* React.useEffect(() =>{
+    console.log('Looooog 2');
+
+  }, [] ); */
+
+  React.useEffect(() =>{
+    console.log('Looooog 2');
+
+  }, [totalTodos] );
+
+  console.log('Log 3');
+
+
   // clase 9: filter todos
   const searchedTodos = todos.filter(
     (todo) => {
