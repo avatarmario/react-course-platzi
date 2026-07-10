@@ -15,6 +15,7 @@ function TodoProvider({children}) {
 
     // State for: search input
     const [searchValue, setSearchValue] = React.useState('');
+    const [openModal, setOpenModal] = React.useState(true);
 
     // ESTADOS DERIVADOS 
 
@@ -67,6 +68,8 @@ function TodoProvider({children}) {
             searchedTodos,
             completeTodo,
             deleteTodo, 
+            openModal,
+            setOpenModal,
         }}>
             {children}
         </TodoContext.Provider>
