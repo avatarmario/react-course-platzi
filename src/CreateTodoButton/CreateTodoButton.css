@@ -14,6 +14,8 @@
     bottom: 24px;
     right: 23px;
 
+    z-index: 1;
+
     transform: rotate(0);
     transition: .3s ease;
 }
