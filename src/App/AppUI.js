@@ -1,3 +1,4 @@
+import React from 'react'
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
@@ -10,21 +11,19 @@ import './App.css';
 import { TodoContext } from '../TodoContext';
 
 function AppUI(){
-return (
-    <main className = "TodoApp">
-      <TodoCounter/>
-      <TodoSearch/>
+    const {
+        loading,
+        error,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,   
+    } = React.useContext(TodoContext);
 
-      <TodoContext.Consumer>
-        { ({
-            loading,
-            error,
-            completedTodos,
-            searchedTodos,
-            completeTodo,
-            deleteTodo, 
-        }) => (
-            <TodoList>
+    return (
+        <main className = "TodoApp">
+        <TodoCounter/>
+        <TodoSearch/>
+        <TodoList>
             {loading && <TodosLoading />}
             {error && <TodosError />}
             {(!loading && searchedTodos.length === 0 ) && <EmptyTodos />}
@@ -38,15 +37,11 @@ return (
                 onDelete = {() => deleteTodo(todo.text)}
             />
             ))}
-            </TodoList>
-        )}
-        
-      </TodoContext.Consumer>
+        </TodoList>
+        <CreateTodoButton />
 
-      <CreateTodoButton />
-
-    </main>
-  );
+        </main>
+    );
 
 }
 
