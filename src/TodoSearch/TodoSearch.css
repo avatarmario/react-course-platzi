@@ -7,7 +7,8 @@
     padding: 0 24px;
     font-size: 20px;
     color: #3b075f;
-    background: #ffe7d2;
+    background-color: #fff4e9;
+    /* background: #ffe7d2; */
     box-shadow: 0 6px 12px rgba(59,7,95, .25);
     outline: none;
 }
