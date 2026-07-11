@@ -15,7 +15,7 @@ function TodoProvider({children}) {
 
     // State for: search input
     const [searchValue, setSearchValue] = React.useState('');
-    const [openModal, setOpenModal] = React.useState(true);
+    const [openModal, setOpenModal] = React.useState(false);
 
     // ESTADOS DERIVADOS 
 
@@ -36,6 +36,16 @@ function TodoProvider({children}) {
         return todoText.includes(searchText);
         }
     );
+
+    //clas27: add todo
+    const addTodo = (text) => {
+        const newTodos = [...todos];
+        newTodos.push({
+            text,
+            completed: false,
+        });
+        saveTodos(newTodos);
+    };
 
     // clase 10 completar todos con eventos 
     const completeTodo = (text) => {
@@ -66,6 +76,7 @@ function TodoProvider({children}) {
             searchValue,
             setSearchValue,
             searchedTodos,
+            addTodo,
             completeTodo,
             deleteTodo, 
             openModal,

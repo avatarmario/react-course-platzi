@@ -35,7 +35,9 @@ function useLocalStorage(itemName, initialValue) {
   // clase 13 
   const saveItem = (newItem) => {
     const stringifiedTodos = JSON.stringify(newItem);
+    // Guardar en localStorage
     localStorage.setItem(itemName, stringifiedTodos);
+    // Actualizar el estado
     setItem(newItem);
   }
 
